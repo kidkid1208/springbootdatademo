@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: dhome
+    password: dhome
+    url: jdbc:mysql://172.28.19.66:8066/DHOME?serverTimezone=UTC
+    #url: jdbc:mysql://localhost:3306/db4?serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.lzh.Pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
