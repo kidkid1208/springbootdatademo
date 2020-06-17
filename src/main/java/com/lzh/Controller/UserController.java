@@ -4,6 +4,7 @@ import com.lzh.Pojo.User;
 import com.lzh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.Validator;
@@ -30,6 +31,7 @@ public class UserController {
     private Validator validator;*/
 
 
+
     //查询数据库的所有信息
     @GetMapping("/userList")
     public List<User> userList(){
@@ -44,10 +46,10 @@ public class UserController {
     public String addUser(@RequestBody @Valid User user,BindingResult bindingResult){
         validData(bindingResult);
 
-        if(userService.addUser(user)==1){
-            return "添加成功";
+        if(userService.addUser(user)!=null){
+            return "创建成功";
         }else{
-            return "添加失败";
+            return "创建失败";
         }
 
     }
@@ -75,6 +77,7 @@ public class UserController {
             return "用户不存在";
         }
     }
+
 
     @GetMapping("/queryUserById/{id}")
     public Object queryUserById(@PathVariable("id") int id){

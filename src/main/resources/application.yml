@@ -9,3 +9,15 @@ spring:
 mybatis:
   type-aliases-package: com.lzh.Pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
+
+logging:
+  level:
+    com.lzh.Mapper:
+      trace
+
+debug:
+  true
+
+redis:
+  host: "localhost"
+  port: 6379

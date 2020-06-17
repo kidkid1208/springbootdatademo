@@ -11,11 +11,11 @@ public interface UserService {
 
     User queryUserById(int id);
 
-    int addUser(User user);
+    User addUser(User user);
 
-    int updateUser(User user);
+    User updateUser(User user);
 
-    int deleteUser(int id);
+    void deleteUser(int id);
 
     User getUser(String username);
 }
